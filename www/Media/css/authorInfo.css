@@ -1,0 +1,55 @@
+
+/* AUTHOR INFO */
+
+.user_background
+{
+    background-position: center;
+	background-image:url(../UserBG.jpg);
+    -webkit-text-fill-color : black;
+}
+
+
+.user_profile img
+{
+	position:absolute !important;
+	top: 20px;
+	left:15px;
+	width:66px;
+	height:66px;
+}
+
+.user_name 
+{
+	position:absolute !important;
+	top: 35px;
+	left:95px;
+	width:215px;
+	height:30px;
+	font:Georgia, "Times New Roman", Times, serif;
+	font-weight:bold;
+	font-size:30px;
+}
+
+.user_about
+{
+	position:absolute !important;
+	top: 145px;
+	left:25px;
+	width:265px;
+	height:155px;
+	overflow:scroll;
+	font-size:14px;
+	font-weight:bold;
+}
+
+.user_rating
+{
+	position:absolute !important;
+	top: 340px;
+	left:25px;
+	width:265px;
+	height:20px;
+	font-size:18px;
+	font-weight:bold;
+}
+
