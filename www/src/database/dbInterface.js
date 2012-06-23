@@ -348,6 +348,7 @@ function RemoveUserEvent( guid )
 {
     var userid = GetUserId();
     
+    
     Ext.Ajax.request(
     {
         url: 'http://www.4thwalltech.com/Fetch/testDb.php?action=removeUserEvent',
