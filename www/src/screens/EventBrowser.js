@@ -284,10 +284,10 @@ function PopulateEventBoard(store)
     {
         html    : htmlStr,
         
-        config:
-        {
-            scrollable:'vertical'
-        },
+        //config:
+        //{
+            //scrollable:'vertical'
+        //},
 
         listeners:
         {
@@ -301,6 +301,9 @@ function PopulateEventBoard(store)
                     gradients: true,
                     inclination: '0.5',
                     duration: 800,
+                    width: 320,
+                    height: 385,
+                    autoCenter: true,
                           
                     when: 
                     {
@@ -347,8 +350,10 @@ function GoToEventBrowser( filter )
     //Reset the book
     this.curPage = 1;
     var book = $('#magazine');
-    
-    book.turn('page', this.curPage);
+    if (book.length)
+    {
+        book.turn('page', this.curPage);
+    }
     
     MainApp.app.browseEventLayer.goTo();
     MainApp.app.browseEventLayer.layer.animateActiveItem(MainApp.app.eventBroswer.screen,

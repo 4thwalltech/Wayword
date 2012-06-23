@@ -66,8 +66,6 @@ function CreateCalendarScreen()
     
     this.calendar = Ext.create('Ext.ux.TouchCalendarView', 
     {
-        minDate     : Ext.Date.add((new Date()), Ext.Date.DAY, -40),
-        maxDate     : Ext.Date.add((new Date()), Ext.Date.DAY, 55),
         mode        : 'month',
         weekStart   : 0,
         value       : new Date(),
@@ -76,9 +74,12 @@ function CreateCalendarScreen()
         plugins: [this.eventMgr]
     });
     
+    this.calendar.setViewMode('month');
     this.calendar.on('eventtap', function(event)
     {
-         MainApp.app.calendarLayer.switchTo(MainApp.app.eventViewer.screen);
+         MainApp.app.calendarLayer.goTo(MainApp.app.eventViewer);
+         MainApp.app.eventViewer.viewEvent(MainApp.app.calendarScreen.store,
+                                                  event.data['guid']);
     });
     
     var screen = Ext.create('Ext.Panel', 
@@ -97,6 +98,9 @@ function CreateCalendarScreen()
 function PopulateCalendar( store )
 {
     this.events.removeAll();
+    this.store = store;
+    
+    console.log("POPULATING?");
     
     store.data.each(function(item, index, totalItems) 
     {
@@ -114,7 +118,7 @@ function PopulateCalendar( store )
             {
                 header  : item.data['place'],
                 desc    : item.data['desc'],
-                guid    : item.data['guid'];
+                guid    : item.data['guid'],
                 start   : start,
                 end     : start
             }
@@ -128,8 +132,16 @@ function PopulateCalendar( store )
 
 ///////////////////////////////////////////////////////////////////////
 
-function GoToEventCalendar()
+function GoToEventCalendar(dir)
 {
     MainApp.app.database.getEventList("user");
-    MainApp.app.calendarLayer.layer.setActiveItem(this.screen);
+    var direction = 'left';
+    if (dir == 'back')
+    {
+        direction = 'right';
+    }
+    
+    MainApp.app.appLayer.layer.setActiveItem(MainApp.app.calendarLayer.layer);
+    MainApp.app.calendarLayer.layer.animateActiveItem(this.screen,
+                                   {type: 'slide', direction: direction});
 }

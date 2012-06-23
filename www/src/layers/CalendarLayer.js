@@ -11,7 +11,7 @@ function CalendarLayer()
         docked :'top',
         items  : 
         [{
-            text: 'back',
+            text: 'Main Menu',
             ui: 'back',
             handler: function () 
             {
@@ -37,13 +37,6 @@ function CalendarLayer()
             }
         },
     });
-    
-    //SwitchTO
-    this.switchTo = function(screen)
-    {
-        MainApp.app.appLayer.layer.setActiveItem(this.layer);
-        this.layer.setActiveItem(screen);   
-    }
     
     //GOTO function
     this.goTo = function( screen )

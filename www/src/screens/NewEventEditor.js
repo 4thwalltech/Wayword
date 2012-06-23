@@ -21,7 +21,7 @@ function NewEventEditor()
     this.tempSelect     = this.createTempSelect();
     //this.createHandler();
     
-    this.template       = "template_layout3";
+    this.template       = "template_layout1";
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -62,7 +62,7 @@ function CreateNewEventEditor()
         this.styleButton,
         { xtype:'spacer' },
         {
-            text: 'share',
+            text: 'Post',
             ui: 'action',
             handler: function () 
             {
@@ -86,7 +86,7 @@ function CreateNewEventEditor()
                 thumb);
          
                 //Move to your list to see
-                MainApp.app.eventBroswer.goTo('user');
+                MainApp.app.calendarLayer.goTo(MainApp.app.calendarScreen);
             }
         }]                               
     });

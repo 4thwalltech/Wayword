@@ -14,6 +14,7 @@ function AppLayer()
         items: [MainApp.app.mainMenu.screen,
                 MainApp.app.browseEventLayer.layer,  
                 MainApp.app.newEventLayer.layer,
+                MainApp.app.calendarLayer.layer,
                 MainApp.app.userInfoLayer.layer],
         
         listeners:

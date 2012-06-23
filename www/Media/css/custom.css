@@ -1,0 +1,88 @@
+
+.loginpanel
+{
+  background-position: center;
+  background-image: url(../login.png);
+}
+
+.createform
+{
+    background-position: center;
+    background-image: url(../EditBG.jpg);
+}
+
+.instrPop
+{
+    background-position: center;
+    background-image: url(../popup.jpg);
+}
+
+/*-----------------------------------------------*/
+/*                      TOC                     */
+/*---------------------------------------------*/
+
+.story_TOC
+{
+    background-position: center;
+    background-image: url(../popup.jpg);
+}
+
+.story_TOC header 
+{
+	font-size:36px;
+}
+
+.toc_entry {}
+
+.toc_entry:active
+{
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    z-index:5;
+}
+
+.toc_entry img 
+{
+    width:30px;
+	height:30px;
+}
+
+/*-----------------------------------------------*/
+/*                 MAGAZINE                     */
+/*---------------------------------------------*/
+#magazine
+{
+    top : 3px;
+    left: 0px;
+	width:320px;
+	height:385px;
+}
+
+#magazine .turn-page
+{
+	background-size:100% 100%;
+	background-color:#ccc;
+}
+
+/*-----------------------------------------------*/
+/*                 SCROLLER                     */
+/*---------------------------------------------*/
+
+#wrapper 
+{
+    z-index:1;
+    width:100%;
+    background:#aaa;
+}
+
+#scroll-content 
+{
+    position:absolute;
+    top:0;
+    z-index:1;
+    width:100%;
+    padding:0;
+    -webkit-overflow-scrolling:touch;
+    overflow:auto;
+}

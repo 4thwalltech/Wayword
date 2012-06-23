@@ -35,11 +35,11 @@
 		C4626F4C14DCFFEF00EC3CDA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4626F4B14DCFFEF00EC3CDA /* AppDelegate.m */; };
 		C4626F4F14DCFFEF00EC3CDA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4626F4E14DCFFEF00EC3CDA /* MainViewController.m */; };
 		C4626F5114DCFFEF00EC3CDA /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4626F5014DCFFEF00EC3CDA /* MainViewController.xib */; };
-		C4626F5F14DD01B700EC3CDA /* www in Resources */ = {isa = PBXBuildFile; fileRef = C4626F5E14DD01B700EC3CDA /* www */; };
+		C4C608BD1563557A008B013B /* www in Resources */ = {isa = PBXBuildFile; fileRef = C4C608BC1563557A008B013B /* www */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C4626F0714DCFFEF00EC3CDA /* Catalist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4626F0714DCFFEF00EC3CDA /* Wayword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wayword.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4626F0B14DCFFEF00EC3CDA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4626F0D14DCFFEF00EC3CDA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C4626F0F14DCFFEF00EC3CDA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,10 +53,10 @@
 		C4626F1F14DCFFEF00EC3CDA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C4626F2114DCFFEF00EC3CDA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C4626F2314DCFFEF00EC3CDA /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		C4626F2714DCFFEF00EC3CDA /* Rewardify-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rewardify-Info.plist"; sourceTree = "<group>"; };
+		C4626F2714DCFFEF00EC3CDA /* Wayword-Info.plist */ = {isa = PBXFileReference; path = "Wayword-Info.plist"; sourceTree = "<group>"; };
 		C4626F2914DCFFEF00EC3CDA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4626F2B14DCFFEF00EC3CDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C4626F2D14DCFFEF00EC3CDA /* Rewardify-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rewardify-Prefix.pch"; sourceTree = "<group>"; };
+		C4626F2D14DCFFEF00EC3CDA /* Wayword-Prefix.pch */ = {isa = PBXFileReference; path = "Wayword-Prefix.pch"; sourceTree = "<group>"; };
 		C4626F2E14DCFFEF00EC3CDA /* PhoneGap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneGap.framework; path = /Users/Shared/PhoneGap/Frameworks/PhoneGap.framework; sourceTree = "<absolute>"; };
 		C4626F3314DCFFEF00EC3CDA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4626F3714DCFFEF00EC3CDA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Resources/es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		C4626F4E14DCFFEF00EC3CDA /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Classes/MainViewController.m; sourceTree = "<group>"; };
 		C4626F5014DCFFEF00EC3CDA /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = Classes/MainViewController.xib; sourceTree = "<group>"; };
 		C4626F5314DCFFEF00EC3CDA /* README */ = {isa = PBXFileReference; lastKnownFileType = text; name = README; path = Plugins/README; sourceTree = "<group>"; };
-		C4626F5E14DD01B700EC3CDA /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
+		C4C608BC1563557A008B013B /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +111,7 @@
 		C4626EF914DCFFEF00EC3CDA = {
 			isa = PBXGroup;
 			children = (
-				C4626F5E14DD01B700EC3CDA /* www */,
-				C4626F2514DCFFEF00EC3CDA /* Rewardify */,
+				C4626F2514DCFFEF00EC3CDA /* Wayword */,
 				C4626F0A14DCFFEF00EC3CDA /* Frameworks */,
 				C4626F0814DCFFEF00EC3CDA /* Products */,
 			);
@@ -121,7 +120,7 @@
 		C4626F0814DCFFEF00EC3CDA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C4626F0714DCFFEF00EC3CDA /* Catalist.app */,
+				C4626F0714DCFFEF00EC3CDA /* Wayword.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,25 +145,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C4626F2514DCFFEF00EC3CDA /* Rewardify */ = {
+		C4626F2514DCFFEF00EC3CDA /* Wayword */ = {
 			isa = PBXGroup;
 			children = (
+				C4C608BC1563557A008B013B /* www */,
 				C4626F2E14DCFFEF00EC3CDA /* PhoneGap.framework */,
 				C4626F3014DCFFEF00EC3CDA /* Resources */,
 				C4626F4914DCFFEF00EC3CDA /* Classes */,
 				C4626F5214DCFFEF00EC3CDA /* Plugins */,
 				C4626F2614DCFFEF00EC3CDA /* Supporting Files */,
 			);
-			path = Rewardify;
+			name = Wayword;
+			path = Catalist;
 			sourceTree = "<group>";
 		};
 		C4626F2614DCFFEF00EC3CDA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C4626F2714DCFFEF00EC3CDA /* Rewardify-Info.plist */,
+				C4626F2714DCFFEF00EC3CDA /* Wayword-Info.plist */,
 				C4626F2814DCFFEF00EC3CDA /* InfoPlist.strings */,
 				C4626F2B14DCFFEF00EC3CDA /* main.m */,
-				C4626F2D14DCFFEF00EC3CDA /* Rewardify-Prefix.pch */,
+				C4626F2D14DCFFEF00EC3CDA /* Wayword-Prefix.pch */,
 				C4626F4714DCFFEF00EC3CDA /* PhoneGap.plist */,
 				C4626F5014DCFFEF00EC3CDA /* MainViewController.xib */,
 			);
@@ -240,9 +241,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4626F0614DCFFEF00EC3CDA /* Rewardify */ = {
+		C4626F0614DCFFEF00EC3CDA /* Wayword */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4626F5614DCFFEF00EC3CDA /* Build configuration list for PBXNativeTarget "Rewardify" */;
+			buildConfigurationList = C4626F5614DCFFEF00EC3CDA /* Build configuration list for PBXNativeTarget "Wayword" */;
 			buildPhases = (
 				C4626F0014DCFFEF00EC3CDA /* Sources */,
 				C4626F0114DCFFEF00EC3CDA /* Frameworks */,
@@ -255,9 +256,9 @@
 			);
 			dependencies = (
 			);
-			name = Rewardify;
+			name = Wayword;
 			productName = Rewardify;
-			productReference = C4626F0714DCFFEF00EC3CDA /* Catalist.app */;
+			productReference = C4626F0714DCFFEF00EC3CDA /* Wayword.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -268,7 +269,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = C4626EFE14DCFFEF00EC3CDA /* Build configuration list for PBXProject "Rewardify" */;
+			buildConfigurationList = C4626EFE14DCFFEF00EC3CDA /* Build configuration list for PBXProject "Wayword" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -281,7 +282,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C4626F0614DCFFEF00EC3CDA /* Rewardify */,
+				C4626F0614DCFFEF00EC3CDA /* Wayword */,
 			);
 		};
 /* End PBXProject section */
@@ -302,7 +303,7 @@
 				C4626F4614DCFFEF00EC3CDA /* Capture.bundle in Resources */,
 				C4626F4814DCFFEF00EC3CDA /* PhoneGap.plist in Resources */,
 				C4626F5114DCFFEF00EC3CDA /* MainViewController.xib in Resources */,
-				C4626F5F14DD01B700EC3CDA /* www in Resources */,
+				C4C608BD1563557A008B013B /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,9 +425,9 @@
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/PhoneGap/Frameworks;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Rewardify/Rewardify-Prefix.pch";
+				GCC_PREFIX_HEADER = "Catalist/Wayword-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
-				INFOPLIST_FILE = "Rewardify/Rewardify-Info.plist";
+				INFOPLIST_FILE = "Catalist/Wayword-Info.plist";
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					UIKit,
@@ -437,7 +438,7 @@
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
 				);
-				PRODUCT_NAME = Catalist;
+				PRODUCT_NAME = Wayword;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -451,9 +452,9 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = /Users/Shared/PhoneGap/Frameworks;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Rewardify/Rewardify-Prefix.pch";
+				GCC_PREFIX_HEADER = "Catalist/Wayword-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "PHONEGAP_FRAMEWORK=YES";
-				INFOPLIST_FILE = "Rewardify/Rewardify-Info.plist";
+				INFOPLIST_FILE = "Catalist/Wayword-Info.plist";
 				OTHER_LDFLAGS = (
 					"-weak_framework",
 					UIKit,
@@ -464,7 +465,7 @@
 					"-weak_library",
 					/usr/lib/libSystem.B.dylib,
 				);
-				PRODUCT_NAME = Catalist;
+				PRODUCT_NAME = Wayword;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -474,7 +475,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4626EFE14DCFFEF00EC3CDA /* Build configuration list for PBXProject "Rewardify" */ = {
+		C4626EFE14DCFFEF00EC3CDA /* Build configuration list for PBXProject "Wayword" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4626F5414DCFFEF00EC3CDA /* Debug */,
@@ -483,7 +484,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4626F5614DCFFEF00EC3CDA /* Build configuration list for PBXNativeTarget "Rewardify" */ = {
+		C4626F5614DCFFEF00EC3CDA /* Build configuration list for PBXNativeTarget "Wayword" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4626F5714DCFFEF00EC3CDA /* Debug */,

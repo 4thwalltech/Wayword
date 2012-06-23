@@ -24,6 +24,11 @@ function CreateEventViewer()
     this.footer  = new Ext.Toolbar(
     {
         docked :'bottom',
+        defaults:
+        {
+            iconMask: true,
+            xtype:'button',
+        },
         
         items : 
         [{
@@ -33,8 +38,29 @@ function CreateEventViewer()
          
              handler: function()
              {
-                MainApp.app.newEventForm.goTo();
+                MainApp.app.calendarScreen.goTo('back');
              }
+        },
+        {
+            iconCls : "globe1",
+            handler: function()
+            {
+            }
+        },
+        {
+            iconCls : "mail5",
+            handler: function()
+            {
+            }
+        },
+        {
+            iconCls : "trash",
+            handler: function()
+            {
+                //Delete from the user database
+                MainApp.app.database.removeUserEvent(MainApp.app.eventViewer.guid);
+                MainApp.app.calendarScreen.goTo('back');
+            }
         }]                               
     });
     
@@ -61,10 +87,11 @@ function CreateEventViewer()
 function ViewEventFromGuid(store, guid)
 {
     var event = store.findRecord('guid', guid);
+    this.guid = guid;
     
     if (event)
     {
-        var htmlStr = DrawEventPoster(event);
+        var htmlStr = DrawEventPoster(event.data);
         this.screen.setHtml(htmlStr);
     }
 }
@@ -73,6 +100,5 @@ function ViewEventFromGuid(store, guid)
 
 function GoToEventViewer()
 {
-    MainApp.app.appLayer.layer.setActiveItem(MainApp.app.newEventLayer.layer);
-    MainApp.app.newEventLayer.layer.animateActiveItem(this.screen, {type: 'slide', direction: 'left'});
+    MainApp.app.calendarLayer.layer.animateActiveItem(this.screen, {type: 'slide', direction: 'left'});
 }
