@@ -33,6 +33,7 @@ function UserInfoLayer()
                             
         items: [MainApp.app.userInfoScreen.screen, 
                 MainApp.app.userInfoForm.screen,
+                MainApp.app.eventList.screen,
                 this.globalHeader],
 
         listeners:

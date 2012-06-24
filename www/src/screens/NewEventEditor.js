@@ -255,8 +255,9 @@ function LoadTemplateSelector()
 
 ///////////////////////////////////////////////////////////////////////
 
-function GoToEventEditor()
+function GoToEventEditor( mode )
 {
+    this.mode = mode;
     MainApp.app.appLayer.layer.setActiveItem(MainApp.app.newEventLayer.layer);
     MainApp.app.newEventLayer.layer.animateActiveItem(this.screen, {type: 'slide', direction: 'left'});
 }

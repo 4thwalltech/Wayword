@@ -192,11 +192,13 @@ function CreateMenuPanel()
             {
                 //Do some riskey conversions...
                 var book = $('#magazine');
-                var page = book.turn('page') - 3;
+                var page = book.turn('page') - (MainApp.app.eventBroswer.tocPages + 2);
                 var guid = MainApp.app.eventBroswer.store.data.items[page].data['guid'];
 
                 MainApp.app.database.checkUserin(guid);
                 MainApp.app.eventBroswer.menu.hide();
+               
+                MainApp.app.calendarLayer.goTo(MainApp.app.calendarScreen);
             }
         },
         {
@@ -260,87 +262,85 @@ function CreateTableOfContents(store)
 
 function PopulateEventBoard(store)
 {	
-    this.screen.removeAll();
-    
-    this.store = store;
-    
-    //Add some cards..
-    var coverhtml = CreateCoverStory(store.data.items[0].data);
-    var pageStr   =  '';
-    
-    //Create the toc
-    var tocStr  = this.createToc(store);
-    
-    store.data.each(function(item, index, totalItems) 
+    if (store.data.items.length > 0)
     {
-        pageStr += '<div class="' + item.data['template'] + '">';
-        pageStr += DrawEventPoster(item.data);
-        pageStr += '</div>';
-    });
-    
-    var htmlStr = '<div id="magazine">' + coverhtml + tocStr + pageStr + '</div>';
-    
-    var screen = new Ext.Panel(
-    {
-        html    : htmlStr,
+        this.screen.removeAll();
         
-        //config:
-        //{
-            //scrollable:'vertical'
-        //},
-
-        listeners:
+        this.store = store;
+        
+        //Add some cards..
+        var coverhtml = CreateCoverStory(store.data.items[0].data);
+        var pageStr   =  '';
+        
+        //Create the toc
+        var tocStr  = this.createToc(store);
+        
+        store.data.each(function(item, index, totalItems) 
         {
-            painted :function()
+            pageStr += '<div class="' + item.data['template'] + '">';
+            pageStr += DrawEventPoster(item.data);
+            pageStr += '</div>';
+        });
+        
+        htmlStr = '<div id="magazine">' + coverhtml + tocStr + pageStr + '</div>';
+        
+        var screen = new Ext.Panel(
+        {
+            html    : htmlStr,
+
+            listeners:
             {
-                var book = $('#magazine');
-                book.turn(
+                painted :function()
                 {
-                    display: 'single',
-                    acceleration: true,
-                    gradients: true,
-                    inclination: '0.5',
-                    duration: 800,
-                    width: 320,
-                    height: 385,
-                    autoCenter: true,
-                          
-                    when: 
+                    var book = $('#magazine');
+                    book.turn(
                     {
-                        turned: function(e, page) 
+                        display: 'single',
+                        acceleration: true,
+                        gradients: true,
+                        inclination: '0.5',
+                        duration: 800,
+                        width: 320,
+                        height: 385,
+                        autoCenter: true,
+                              
+                        when: 
                         {
+                            turned: function(e, page) 
+                            {
+                            }
                         }
-                    }
-                });
-            }
-        }
-    });
-    
-
-    //Register page moving
-    screen.element.on(
-    {
-        delegate: 'div',
-        tap: function (e,t) 
-        {
-            var cls = t.getAttribute('class');
-            if (cls == 'toc_header')
-            {
-                var page     = t.getAttribute('page');
-                var pageNum  = parseInt(page);
-                pageNum      += (MainApp.app.eventBroswer.tocPages + 2);
-                
-                if (pageNum != this.curPage)
-                {
-                      var book = $('#magazine');
-                      book.turn('page', pageNum);
-                      this.curPage = pageNum;
+                    });
                 }
             }
-        }
-    });
-    
-    MainApp.app.eventBroswer.screen.add(screen);
+        });
+        
+
+        //Register page moving
+        screen.element.on(
+        {
+            delegate: 'div',
+            tap: function (e,t) 
+            {
+                var cls = t.getAttribute('class');
+                if (cls == 'toc_header')
+                {
+                    var page     = t.getAttribute('page');
+                    var pageNum  = parseInt(page);
+                    pageNum      += (MainApp.app.eventBroswer.tocPages + 2);
+                    
+                    if (pageNum != this.curPage)
+                    {
+                          var book = $('#magazine');
+                          book.turn('page', pageNum);
+                          this.curPage = pageNum;
+                    }
+                }
+            }
+        });
+        
+        MainApp.app.eventBroswer.screen.add(screen);
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////

@@ -48,9 +48,72 @@
 	height:30px;
 }
 
+
+/*-----------------------------------------------*/
+/*                 LIST TEMPLATE                */
+/*---------------------------------------------*/
+
+.list_imagebox
+{
+	float:left;
+	position:absolute;
+	left:260px;
+	height:20px;
+	width:50px;	
+}
+
+.list_textbox
+{
+	float:left;
+	position:absolute;
+	left:10px;
+	width:245px;
+	height:20px;
+	
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+	-o- text-overflow: ellipsis;
+}
+
+.list_textbox list_header
+{
+	font-family: "Century Gothic", Arial, serif;
+	font-size:18px;
+	font-weight:bold;
+}
+
+.list_textbox list_description
+{
+	font-family: "Times New Roman", Times, serif;
+	font-size:12px;
+	color: #666; 
+}
+
+.list_imagebox list_delete img
+{
+	position:relative;
+	top: 0px;
+	left:25px;
+	width:20px;
+	height:20px;
+	SRC="delete.png"
+}
+
+.list_imagebox list_edit img
+{
+	position:relative;
+	top: 0px;;
+	left:0px;;
+	width:20px;
+	height:20px;
+	SRC="edit.png"
+}
+
 /*-----------------------------------------------*/
 /*                 MAGAZINE                     */
 /*---------------------------------------------*/
+
 #magazine
 {
     top : 3px;

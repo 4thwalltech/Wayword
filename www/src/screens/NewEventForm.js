@@ -1,4 +1,6 @@
 
+var EDITOR_NEW = 0;
+var EDITOR_UPDATE = 1;
 
 ///////////////////////////////////////////////////////////////////////
 //                        New Event Screen Class
@@ -14,6 +16,7 @@ function NewEventForm()
     
     //set your thumbnail.
     this.screen = this.create();
+    this.mode   = EDITOR_NEW;
     this.updateThumb("Media/camera.jpg");
 }
 
@@ -151,8 +154,10 @@ function UpdatePhotoThumb(thumb)
 
 ///////////////////////////////////////////////////////////////////////
 
-function GoToEventForm()
+function GoToEventForm( mode )
 {
+    this.mode = mode;
+
     MainApp.app.cameraUtil.tookPhoto = false;
     MainApp.app.appLayer.layer.setActiveItem(MainApp.app.newEventLayer.layer);
     MainApp.app.newEventLayer.layer.animateActiveItem(this.screen, 

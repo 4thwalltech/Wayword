@@ -51,6 +51,7 @@ MainApp = Ext.application(
         this.userInfoForm       = new UserInfoForm();
         this.calendarScreen     = new Calendar();
         this.eventViewer        = new EventViewer();
+        this.eventList          = new EventList();
                           
         //Create the layers
         this.newEventLayer    = new NewEventLayer();

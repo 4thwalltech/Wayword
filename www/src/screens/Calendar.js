@@ -100,12 +100,10 @@ function PopulateCalendar( store )
     this.events.removeAll();
     this.store = store;
     
-    console.log("POPULATING?");
-    
     store.data.each(function(item, index, totalItems) 
     {
         //add it in.
-        var date      =  item.data['pinday'];
+        var date      =  item.data['start'];
         if (date)
         {
             var datePiece =  date.split("-");

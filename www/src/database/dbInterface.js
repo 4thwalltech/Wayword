@@ -81,6 +81,7 @@ function DataBaseInterface()
     this.addPointsForUser  = AddPointsForUser;
     this.userJoinEvent     = UserJoinEvent;
     this.uploadImage       = UploadImage;
+    this.deleteEvent       = DeleteEvent;
     
     this.createNewUser     = CreateNewUser;
     this.loginUser         = LoginUser;
@@ -338,6 +339,7 @@ function AddUserEvent( guid, date )
         success: function(response, opts) 
         {
             console.log(response);
+            MainApp.app.database.eventsNearByStore.load();
         }
     });
 }
@@ -347,7 +349,6 @@ function AddUserEvent( guid, date )
 function RemoveUserEvent( guid )
 {
     var userid = GetUserId();
-    
     
     Ext.Ajax.request(
     {
@@ -391,6 +392,26 @@ function CreateNewEvent( data, lat, lon, template, thumb )
         {
             MainApp.app.instructPop.showInstr(INSTR_CREATE);
             MainApp.app.database.addPointsForUser(100);
+        }
+    });
+}
+
+///////////////////////////////////////////////////////////////////////
+
+function DeleteEvent( guid )
+{
+    Ext.Ajax.request(
+    {
+        url: 'http://www.4thwalltech.com/Fetch/testDb.php?action=deleteEvent',
+        method: 'post',
+        params: 
+        {   
+            guid  : guid,
+        },
+                     
+        success: function(response, opts) 
+        {
+            MainApp.app.database.eventsNearByStore.load();
         }
     });
 }

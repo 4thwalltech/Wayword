@@ -77,7 +77,7 @@ function AddMenuHandler()
             var id = t.getAttribute('id');
             if (id == 'add')
             {
-                MainApp.app.newEventForm.goTo();
+                MainApp.app.newEventForm.goTo(EDITOR_NEW);
             }
             else if (id == 'bio')
             {
