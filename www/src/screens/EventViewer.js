@@ -29,6 +29,12 @@ function CreateEventViewer()
             iconMask: true,
             xtype:'button',
         },
+                                   
+        layout: 
+        {
+            type: 'hbox',
+            pack: 'center'                        
+        },
         
         items : 
         [{

@@ -456,6 +456,9 @@ function LoginUser(data)
 {
     UserName = data.username;
     
+    this.curUserName = data.username;
+    this.curPassword = data.password;
+    
     Ext.Ajax.request(
     {
         url: 'http://www.4thwalltech.com/Fetch/testDb.php?action=loginUser',
@@ -475,6 +478,10 @@ function LoginUser(data)
             }
             else
             {
+                //Cache login information
+                window.localStorage.setItem("username", MainApp.app.database.curUserName);
+                window.localStorage.setItem("password", MainApp.app.database.curPassword);
+                
                 //First get the user information..
                 MainApp.app.database.getUserInfo(UserName);
                 MainApp.app.loginLayer.layer.setActiveItem(MainApp.app.appLayer.layer,

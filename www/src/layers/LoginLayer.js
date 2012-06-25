@@ -18,6 +18,17 @@ function LoginLayer()
         {
             activate:function()
             {
+                //Try and log the user via cache
+                var cache =
+                {
+                    username : window.localStorage.getItem("username"),
+                    password : window.localStorage.getItem("password")
+                };
+                               
+                if (cache.username && cache.password)
+                {
+                    MainApp.app.database.loginUser(cache);
+                }
             }
         },
     });

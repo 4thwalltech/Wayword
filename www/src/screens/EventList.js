@@ -35,7 +35,7 @@ function CreateEventList()
     
     var csstemp = '<tpl for=".">';
     csstemp    += '<div class="list_textbox">';
-    csstemp    += '<list_header>{place}</list_header>';
+    csstemp    += '<list_header>{place} - </list_header>';
     csstemp    += '<list_description>{desc}</list_description>';
     csstemp    += '</div>';
     
