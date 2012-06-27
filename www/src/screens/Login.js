@@ -8,6 +8,7 @@ function LoginScreen()
 {
     //Create login screen...
     this.screen  = CreateLoginScreen();
+    this.goTo    = GoToLoginScreen;
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -77,7 +78,7 @@ function CreateUserForm()
         [{
              xtype:'textfield',
              name: 'username',
-             label:'Name',
+             label:'Email',
              autoCapitalize : true,
              required: true,
          },
@@ -91,4 +92,11 @@ function CreateUserForm()
     };
     
     return form;
+}
+
+///////////////////////////////////////////////////////////////////////
+
+function GoToLoginScreen()
+{
+    MainApp.app.loginLayer.layer.setActiveItem(this.screen, {type: 'slide', direction: 'right'});
 }

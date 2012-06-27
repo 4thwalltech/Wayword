@@ -130,6 +130,7 @@ function BuildMainMenu()
 
 function GoToMainMenu()
 {
+    MainApp.app.loginLayer.layer.setActiveItem(MainApp.app.appLayer.layer);
     MainApp.app.appLayer.layer.animateActiveItem(this.screen, 
                                                 {type: 'slide', direction: 'down'});
 }

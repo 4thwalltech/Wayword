@@ -42,6 +42,7 @@ Ext.define('UserInfo',
             {name: 'thumb',   type: 'string'},
             {name: 'bio',     type: 'string'},
             {name: 'score' ,  type: 'score'},
+            {name: 'email' ,  type: 'string'},
             {name: 'level'  , type: 'string'}
         ]
     }
@@ -68,11 +69,13 @@ function DataBaseInterface()
 {
     this.eventsNearByStore = CreateNearByStore();
     this.userInfoStore     = CreateUserInfoStore();
+    this.friendStore       = CreateFriendStore();
     this.templateStore     = CreateTemplateStore();
     this.loadingMask       = CreateLoadingScreen();  
     
     this.getEventList      = GetEventList;
     this.getUserInfo       = GetUserInfo;
+    this.getUserFriends    = GetUserFriends;
     this.getUserId         = GetUserId;
     this.checkUserin       = CheckUserIn;
     this.getUserData       = GetUserData;
@@ -206,6 +209,41 @@ function CreateUserInfoStore()
 
 ///////////////////////////////////////////////////////////////////////
 
+function CreateFriendStore()
+{
+    var store = Ext.create('Ext.data.Store',
+    {
+        model: 'UserInfo',
+        proxy: 
+        {
+            type: 'ajax',
+            url : 'http://www.4thwalltech.com/Fetch/testDb.php',
+
+            extraParams: 
+            {
+                action: 'getFriends',
+                userId: '0'
+            },
+
+            reader: 
+            {
+                type:   'xml',
+                record: 'items'
+            }
+        },
+    });
+    
+    //When this store loads, we should populate the screen..
+    store.on('load', function () 
+    {
+
+    });
+    
+    return store;
+}
+
+///////////////////////////////////////////////////////////////////////
+
 function CreateTemplateStore()
 {
     var store = Ext.create('Ext.data.Store',
@@ -300,6 +338,18 @@ function UpdateUserData( data, thumb )
              console.log(response);
              MainApp.app.database.userInfoStore.load();  
         }
+    });
+}
+
+///////////////////////////////////////////////////////////////////////
+
+function GetUserFriends()
+{
+    var userId = GetUserId();
+    
+    this.friendStore.getProxy().setExtraParam('userId', userId);
+    this.friendStore.load(function(records, operation, success) 
+    {
     });
 }
 
@@ -484,8 +534,7 @@ function LoginUser(data)
                 
                 //First get the user information..
                 MainApp.app.database.getUserInfo(UserName);
-                MainApp.app.loginLayer.layer.setActiveItem(MainApp.app.appLayer.layer,
-                                               {type: 'slide', direction: 'up'});
+                MainApp.app.mainMenu.goTo();
             }
         }
     });

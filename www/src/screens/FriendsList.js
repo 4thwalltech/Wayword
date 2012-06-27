@@ -4,13 +4,12 @@
 //                        New Event Screen Class
 ///////////////////////////////////////////////////////////////////////
 
-function EventList()
+function FriendsList()
 {
     //Create event board...
-    this.create      = CreateEventList;
-    this.goTo        = GoToEventList;
+    this.create      = CreateFriendsList;
+    this.goTo        = GoToFriendsList;
     
-    //set your thumbnail.
     this.screen = this.create();
 }
 
@@ -18,34 +17,42 @@ function EventList()
 //                        CREATE GUI SCREENS
 ///////////////////////////////////////////////////////////////////////
 
-function CreateEventList()
+function CreateFriendsList()
 {
-    var csstemp = '<tpl for=".">';
-    csstemp    += '<div class="list_textbox">';
-    csstemp    += '<list_header>{place} - </list_header>';
-    csstemp    += '<list_description>{desc}</list_description>';
-    csstemp    += '</div>';
+    //Button for submission
+    this.search = 
+    {
+        xtype :'button',
+        ui    :'action',
+        docked:'bottom',
+        text  :'Search',
+        
+        handler: function () 
+        {
+        }
+    };
     
-    csstemp    += '<div class="list_imagebox">';
-    csstemp    += '<list_delete><img src="Media/delete.png" id="delete" guid={guid}/>';
-    csstemp    += '</list_delete></div>';
+    var csstemp = '<tpl for=".">';
+    csstemp    += '<div class="friend_photo"><img src="{thumb}"/></div>';
+    csstemp    += '<div class="friend_name">{name}</div>';
     csstemp    += '</tpl>';
     
     var screen = Ext.create('Ext.List', 
     {
-        iconCls    : 'note1',
-        title      : 'Your Events',
-        fullscreen : true,
+        iconCls    : 'team',
         cls        : 'blankPage',
+        title      : 'Your Friends',
+        fullscreen : true,
                             
-        store: MainApp.app.database.eventsNearByStore,
+        store: MainApp.app.database.friendStore,
         itemTpl: csstemp,
+        items : [ this.search],
 
         listeners:
         {
             painted :function()
             {
-                MainApp.app.database.getEventList("created");
+                MainApp.app.database.getUserFriends();
             }
         }
     });
@@ -53,16 +60,6 @@ function CreateEventList()
     //Register tap events on the items
     screen.element.on(
     {
-        delegate: 'img',
-        tap: function (e,t) 
-        {
-            var id = t.getAttribute('id');
-            if (id == 'delete')
-            {
-                var guid = t.getAttribute('guid');
-                MainApp.app.database.deleteEvent(guid);
-            }
-        }
     });
     
     
@@ -71,7 +68,7 @@ function CreateEventList()
 
 ///////////////////////////////////////////////////////////////////////
 
-function GoToEventList()
+function GoToFriendsList()
 {
     MainApp.app.appLayer.layer.setActiveItem(MainApp.app.userInfoLayer.layer);
     MainApp.app.userInfoLayer.layer.animateActiveItem(this.screen, {type: 'slide', direction: 'up'});

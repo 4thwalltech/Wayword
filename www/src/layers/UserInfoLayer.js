@@ -9,6 +9,13 @@ function UserInfoLayer()
     {
         title  : 'User Info',
         docked :'top',
+                                        
+        layout: 
+        {
+            type: 'hbox',
+            pack: 'center'                        
+        },
+                                        
         items  : 
         [{
             text: 'back',
@@ -17,6 +24,18 @@ function UserInfoLayer()
             {
                 MainApp.app.mainMenu.goTo();
             }
+         },
+         { xtype :'spacer' },
+         {
+             text: 'logout',
+             ui: 'action',
+             handler: function () 
+             {
+                 //delete cache data
+                window.localStorage.removeItem("username");
+                window.localStorage.removeItem("password");
+                MainApp.app.loginScreen.goTo();
+             }
          }]
      }); 
     
@@ -34,6 +53,7 @@ function UserInfoLayer()
         items: [MainApp.app.userInfoScreen.screen, 
                 MainApp.app.userInfoForm.screen,
                 MainApp.app.eventList.screen,
+                MainApp.app.friendsList.screen,
                 this.globalHeader],
 
         listeners:
